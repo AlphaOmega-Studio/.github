@@ -1,25 +1,20 @@
 name: Обновить README организации
-
 on:
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
-
 permissions:
   contents: write
   issues: read
-
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Сгенерировать список репозиториев
         uses: actions/github-script@v7
         with:
           script: |
-            // Получить все публичные репозитории организации
             const repos = await github.paginate(
               github.rest.repos.listForOrg,
               {
@@ -28,27 +23,18 @@ jobs:
                 per_page: 100
               }
             );
-            
-            // Создать Markdown-список
             const lines = repos.map(repo => 
               `- [${repo.name}](${repo.html_url}) - ${repo.description || 'нет описания'}`
             ).join('\n');
-            
             const listBlock = `<!-- REPO-LIST:START -->\n${lines}\n<!-- REPO-LIST:END -->`;
-            
-            // Читаем текущий README
             const fs = require('fs');
             const path = 'profile/README.md';
             const readme = fs.readFileSync(path, 'utf8');
-            
-            // Заменяем блок
             const updated = readme.replace(
               /<!-- REPO-LIST:START -->[\s\S]*<!-- REPO-LIST:END -->/,
               listBlock
             );
-            
             fs.writeFileSync(path, updated);
-            
       - name: Закоммитить изменения
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
