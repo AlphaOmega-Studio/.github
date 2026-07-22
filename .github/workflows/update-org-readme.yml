@@ -31,7 +31,7 @@ jobs:
             
             // Создать Markdown-список
             const lines = repos.map(repo => 
-              `- [${repo.name}](${repo.html_url}) - ${repo.description || 'нет описания'} ⭐ ${repo.stargazers_count}`
+              `- [${repo.name}](${repo.html_url}) - ${repo.description || 'нет описания'}`
             ).join('\n');
             
             const listBlock = `<!-- REPO-LIST:START -->\n${lines}\n<!-- REPO-LIST:END -->`;
