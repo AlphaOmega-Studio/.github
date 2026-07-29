@@ -104,13 +104,17 @@ def get_repos_data(g, org_name):
                 data["actions_total"] = 0
                 data["actions_success_rate"] = "—"
 
-            # 6. Релизы и скачивания
+            # 6. Релизы и скачивания (безопасный перебор без среза)
             releases = repo.get_releases()
             data["release_count"] = releases.totalCount
             downloads = 0
-            for rel in releases[:5]:
+            rel_count = 0
+            for rel in releases:
+                if rel_count >= 5:
+                    break
                 for asset in rel.get_assets():
                     downloads += asset.download_count
+                rel_count += 1
             data["total_downloads"] = downloads
 
             # 7. Открытые PR и Issues
