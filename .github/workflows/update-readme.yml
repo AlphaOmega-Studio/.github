@@ -28,7 +28,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORGANIZATION: ${{ github.repository_owner }}
-        run: python scripts/update_readme.py
+        run: |
+          echo "=== Содержимое папки profile ==="
+          ls -la profile/ || echo "Папка profile не найдена"
+          echo "=== Запуск скрипта ==="
+          python scripts/update_readme.py
+          echo "=== Содержимое README после скрипта ==="
+          cat profile/README.md | head -50
 
       - name: Commit and push
         run: |
