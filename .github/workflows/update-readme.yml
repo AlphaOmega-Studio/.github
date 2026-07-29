@@ -25,7 +25,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install PyGithub requests python-dotenv
+          pip install --upgrade pip
+          pip install PyGithub>=2.0.0 requests
 
       - name: Run update script
         env:
