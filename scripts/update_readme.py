@@ -214,7 +214,7 @@ def update_readme(readme_path, table):
     with open(readme_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    pattern = r'(<!-- REPO_LIST_START -->\n).*?(\n<!-- REPO_LIST_END -->)'
+    pattern = r'(<!-- REPO_LIST:START -->\n).*?(\n<!-- REPO_LIST:END -->)'
     replacement = r'\1' + table + r'\2'
     new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
