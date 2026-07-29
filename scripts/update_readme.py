@@ -75,7 +75,7 @@ def generate_table(repos_data):
         ])
 
     table = "| " + " | ".join(headers) + " |\n"
-    table += "| " + " | ".join(["---"] * len(headers)) + " |\n"
+    table += "| " + " | ".join([":---:"] * len(headers)) + " |\n"
     for row in rows:
         table += "| " + " | ".join(row) + " |\n"
     return table
