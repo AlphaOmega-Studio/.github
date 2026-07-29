@@ -1,56 +1,42 @@
 import os
 import re
 from datetime import datetime, timezone
-
 from github import Github, Auth, GithubException
-
 TOKEN = os.getenv("GITHUB_TOKEN")
 ORG_NAME = os.getenv("ORGANIZATION")
 README_PATH = "profile/README.md"
-
-
 def get_repos_data(g, org_name):
     org = g.get_organization(org_name)
     repos = org.get_repos()
     result = []
-
     for repo in repos:
         if repo.name == ".github":
             continue
-
         data = {
             "name": repo.name,
             "full_name": repo.full_name,
             "description": repo.description or "",
             "language": repo.language or "—",
             "license": repo.license.name if repo.license else "—",
-            "created_at": repo.created_at.strftime("%Y-%m-%d"),
-            "updated_at": repo.updated_at.strftime("%Y-%m-%d"),
+            "created_at": repo.created_at.strftime("%d-%m-%Y"),
+            "updated_at": repo.updated_at.strftime("%d-%m-%Y"),
             "stars": repo.stargazers_count,
             "forks": repo.forks_count,
             "size_mb": round(repo.size / 1024, 1) if repo.size else 0,
         }
-
-        # Проверка наличия README
         try:
             repo.get_readme()
             data["has_readme"] = True
         except GithubException:
             data["has_readme"] = False
-
-        # Релизы и скачивания (только первые 5)
         try:
             releases = repo.get_releases()
             data["release_count"] = releases.totalCount
-            downloads = 0
-            count = 0
+            total_downloads = 0
             for rel in releases:
-                if count >= 5:
-                    break
                 for asset in rel.get_assets():
-                    downloads += asset.download_count
-                count += 1
-            data["total_downloads"] = downloads
+                    total_downloads += asset.download_count
+            data["total_downloads"] = total_downloads
         except GithubException:
             data["release_count"] = 0
             data["total_downloads"] = 0
@@ -117,7 +103,7 @@ def main():
 
     repos_data = get_repos_data(g, ORG_NAME)
     table = generate_table(repos_data)
-    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    timestamp = datetime.now(timezone.utc).strftime("%d-%m-%Y %H:%M UTC")
     full_table = f"*Данные актуальны на {timestamp}*\n\n" + table
 
     update_readme(README_PATH, full_table)
