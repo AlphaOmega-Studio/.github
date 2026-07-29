@@ -46,9 +46,9 @@ def generate_table(repos_data):
     if not repos_data:
         return "Нет репозиториев"
     headers = [
-        "Проект / Project", "Описание / Description", "Язык / Language", "Лицензия / Licence",
-        "Создан / Created", "Обновлён / Updated", "⭐", "🍴",
-        "Размер (МБ) / Size (MB)", "README", "Релизов / Releases", "Скачиваний / Downloads"
+        "Проект Project", "Описание Description", "Язык Language", "Лицензия Licence",
+        "Создан Created", "Обновлён Updated", "⭐", "🍴",
+        "Размер (МБ) Size (MB)", "README", "Релизов Releases", "Скачиваний Downloads"
     ]
     rows = []
     for r in repos_data:
