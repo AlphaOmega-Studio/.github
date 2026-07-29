@@ -35,5 +35,5 @@ def u(p,t):
 if __name__=="__main__":
     t=os.getenv("GITHUB_TOKEN"); o=os.getenv("ORGANIZATION")
     if not t or not o: exit(1)
-    g=Github(Auth.Token(t))
+    g=Github(auth=Auth.Token(t))
     u("profile/README.md",f"*Данные актуальны на / Data updated on {datetime.now(timezone.utc).strftime('%d-%m-%Y %H:%M UTC')}*\n\n"+gt(gd(g,o)))
