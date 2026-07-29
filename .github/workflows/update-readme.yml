@@ -1,0 +1,41 @@
+name: Update Organization README
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # каждый день в 6:00 UTC
+  workflow_dispatch:      # ручной запуск (для отладки)
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write     # чтобы коммитить изменённый README
+      pull-requests: read # для чтения PR (если нужно)
+      actions: read       # для статистики по Actions
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install PyGithub requests python-dotenv
+
+      - name: Run update script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORGANIZATION: ${{ github.repository_owner }}
+        run: python scripts/update_readme.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add profile/README.md
+          git diff --quiet --staged || (git commit -m "chore: auto-update organization README" && git push)
