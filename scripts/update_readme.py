@@ -88,8 +88,7 @@ def main():
     g = Github(auth=auth)
     repos_data = get_repos_data(g, ORG_NAME)
     table = generate_table(repos_data)
-    timestamp = datetime.now(timezone.utc).strftime("%d-%m-%Y %H:%M UTC")
-    full_table = f"*Данные актуальны на {timestamp}*\n\n" + table
+    full_table = f"*Данные актуальны на / Data updated on {datetime.now(timezone.utc).strftime("%d-%m-%Y %H:%M UTC")}*\n\n" + table
     update_readme(README_PATH, full_table)
 if __name__ == "__main__":
     main()
