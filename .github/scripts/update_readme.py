@@ -218,7 +218,7 @@ def update_readme(readme_path, table):
         content = f.read()
 
     # Регулярка для поиска между маркерами
-    pattern = r'(<!-- REPO_LIST_START -->\n).*?(\n<!-- REPO_LIST_END -->)'
+    pattern = r'(<!-- REPO-LIST:START -->\n).*?(\n<!-- REPO_LIST:END -->)'
     replacement = r'\1' + table + r'\2'
 
     new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
