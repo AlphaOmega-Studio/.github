@@ -1,14 +1,18 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import os
 import re
-from datetime import datetime, timedelta
+from datetime import datetime
 
-from github import Github, GithubException
-from github.GithubObject import NotSet
+from github import Github, Auth, GithubException
+from github.GithubException import RateLimitExceededException
 
-# Чтение переменных окружения
+# Переменные окружения
 TOKEN = os.getenv("GITHUB_TOKEN")
 ORG_NAME = os.getenv("ORGANIZATION")
 README_PATH = "profile/README.md"   # путь к README организации
+
 
 def get_repos_data(g, org_name):
     """
@@ -48,9 +52,9 @@ def get_repos_data(g, org_name):
         # Дополнительная информация (требует отдельных запросов)
         try:
             # 1. Статистика коммитов за последние 52 недели
-            commits_stats = repo.get_commits_stats()
+            commits_stats = repo.get_stats_commit_activity()
             if commits_stats:
-                # Суммируем коммиты за последние 7 дней (индекс -1)
+                # Суммируем коммиты за последние 7 дней (последний элемент списка)
                 total_weekly_commits = sum(week.total for week in commits_stats[-1:])
                 data["weekly_commits"] = total_weekly_commits
             else:
@@ -95,32 +99,33 @@ def get_repos_data(g, org_name):
                 data["clones_count"] = 0
                 data["unique_cloners"] = 0
 
-            # 5. Статистика Actions (последние 30 запусков)
+            # 5. Статистика Actions (последние 100 запусков)
             try:
                 actions_runs = repo.get_workflow_runs()
                 total_runs = actions_runs.totalCount
                 successful = sum(1 for run in actions_runs[:100] if run.conclusion == "success")
-                failed = sum(1 for run in actions_runs[:100] if run.conclusion == "failure")
                 data["actions_total"] = total_runs
                 data["actions_success_rate"] = f"{(successful / (total_runs or 1) * 100):.0f}%"
             except GithubException:
                 data["actions_total"] = 0
                 data["actions_success_rate"] = "—"
 
-            # 6. Количество релизов и общие скачивания (если есть)
+            # 6. Количество релизов и общие скачивания (ограничим 5 релизами)
             releases = repo.get_releases()
             data["release_count"] = releases.totalCount
             total_downloads = 0
-            for rel in releases[:5]:  # ограничим, чтобы не грузить
+            for rel in releases[:5]:
                 for asset in rel.get_assets():
                     total_downloads += asset.download_count
             data["total_downloads"] = total_downloads
 
             # 7. Количество открытых PR и Issues
             data["open_prs"] = repo.get_pulls(state="open").totalCount
-            data["open_issues"] = repo.get_issues(state="open").totalCount
+            # get_issues возвращает и PR, и Issues, поэтому вычитаем PR
+            all_open = repo.get_issues(state="open").totalCount
+            data["open_issues"] = all_open - data["open_prs"]
 
-        except GithubException as e:
+        except (GithubException, RateLimitExceededException) as e:
             # Если какие-то данные недоступны (нет прав или 404), заполняем прочерками
             data.setdefault("weekly_commits", "—")
             data.setdefault("top_contributors", "—")
@@ -138,12 +143,13 @@ def get_repos_data(g, org_name):
             data.setdefault("total_downloads", "—")
             data.setdefault("open_prs", "—")
             data.setdefault("open_issues", "—")
-            # Пропускаем ошибку, чтобы не прерывать сбор для других репозиториев
+            # Не прерываем сбор для остальных репозиториев
             continue
 
         repos_data.append(data)
 
     return repos_data
+
 
 def generate_table(repos_data):
     """
@@ -152,7 +158,7 @@ def generate_table(repos_data):
     if not repos_data:
         return "Нет доступных репозиториев."
 
-    # Заголовки таблицы (используем сокращённые названия колонок)
+    # Заголовки таблицы
     headers = [
         "Проект", "Описание", "Язык", "Лицензия",
         "Создан", "Обновлён", "Пуш",
@@ -169,9 +175,17 @@ def generate_table(repos_data):
     # Строки
     rows = []
     for r in repos_data:
+        # Ограничим длину описания и контрибьюторов для читаемости
+        desc = r['description']
+        if len(desc) > 40:
+            desc = desc[:40] + "…"
+        top = r['top_contributors']
+        if len(top) > 30:
+            top = top[:30] + "…"
+
         rows.append([
             f"[{r['name']}](https://github.com/{r['full_name']})",
-            r['description'][:40] + "…" if len(r['description']) > 40 else r['description'],
+            desc,
             r['language'],
             r['license'],
             r['created_at'],
@@ -182,7 +196,7 @@ def generate_table(repos_data):
             str(r['watchers']),
             str(r['open_issues']),
             str(r['weekly_commits']),
-            r['top_contributors'][:30] + "…" if len(r['top_contributors']) > 30 else r['top_contributors'],
+            top,
             str(r['health_percentage']),
             "✅" if r['has_readme'] else "❌",
             "✅" if r['has_contributing'] else "❌",
@@ -200,15 +214,13 @@ def generate_table(repos_data):
         ])
 
     # Построение таблицы
-    # Чтобы таблица не была слишком широкой, можно разбить на несколько таблиц,
-    # но для демонстрации покажем одну большую.
-    # Используем форматирование с выравниванием (в Markdown не обязательно).
     table = "| " + " | ".join(headers) + " |\n"
     table += "| " + " | ".join(["---"] * len(headers)) + " |\n"
     for row in rows:
         table += "| " + " | ".join(row) + " |\n"
 
     return table
+
 
 def update_readme(readme_path, table):
     """
@@ -218,7 +230,7 @@ def update_readme(readme_path, table):
         content = f.read()
 
     # Регулярка для поиска между маркерами
-    pattern = r'(<!-- REPO-LIST:START -->\n).*?(\n<!-- REPO_LIST:END -->)'
+    pattern = r'(<!-- REPO_LIST_START -->\n).*?(\n<!-- REPO_LIST_END -->)'
     replacement = r'\1' + table + r'\2'
 
     new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
@@ -226,12 +238,16 @@ def update_readme(readme_path, table):
     with open(readme_path, "w", encoding="utf-8") as f:
         f.write(new_content)
 
+
 def main():
     if not TOKEN or not ORG_NAME:
         print("Missing GITHUB_TOKEN or ORGANIZATION environment variables")
         exit(1)
 
-    g = Github(TOKEN)
+    # Современный способ авторизации
+    auth = Auth.Token(TOKEN)
+    g = Github(auth=auth)
+
     repos_data = get_repos_data(g, ORG_NAME)
 
     # Генерация таблицы с полной информацией
@@ -242,6 +258,7 @@ def main():
     full_table = f"*Данные актуальны на {timestamp}*\n\n" + table
 
     update_readme(README_PATH, full_table)
+
 
 if __name__ == "__main__":
     main()
