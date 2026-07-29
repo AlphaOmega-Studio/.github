@@ -219,6 +219,9 @@ def main():
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     full_table = f"*Данные актуальны на {timestamp}*\n\n" + table
 
+    print(f"Собрано данных по {len(repos_data)} репозиториям")
+    print(f"Таблица сгенерирована, длина: {len(table)} символов")
+
     update_readme(README_PATH, full_table)
 
 
