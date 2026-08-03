@@ -9,13 +9,14 @@ jobs:
   update-license-year:
     runs-on: ubuntu-latest
     permissions:
-      contents: write      # <-- обязательно для создания коммита и пуша
+      contents: write      # разрешение на создание коммита и PR
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}   # <-- эта строка обязательна
+          fetch-depth: 0   # важно для правильной работы действия
       
       - name: Update license year
         uses: FantasticFiasco/action-update-license-year@v3
         with:
-          license-file: 'LICENSE.md'
+          token: ${{ secrets.GITHUB_TOKEN }}   # обязательный параметр
+          path: 'LICENSE.md'                   # путь к вашему файлу лицензии
