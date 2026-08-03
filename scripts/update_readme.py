@@ -19,7 +19,7 @@ def gd(g,o):
     return d
 def gt(d):
     if not d: return "Нет репозиториев"
-    h=["Проект Project","Описание Description","Создан Created","Обновлён Updated","⭐","Размер (МБ) Size (MB)","README","Релизов Releases","Скачиваний Downloads"]
+    h=["Проект Project","Описание Description","Создан Created","Обновлён Updated","⭐","Размер в МБ Size in MB","README","Релизов Releases","Скачиваний Downloads"]
     b="| "+" | ".join(h)+" |\n| "+" | ".join([":---:"]*len(h))+" |\n"
     for r in d:
         p=r['description'][:40]+"…" if len(r['description'])>40 else r['description']
