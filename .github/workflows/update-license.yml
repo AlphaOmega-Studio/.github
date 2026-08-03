@@ -1,28 +1,21 @@
 name: Update license year
+
 on:
   schedule:
-    - cron: '0 3 1 1 *'
-  workflow_dispatch:
+    - cron: '0 3 1 1 *'   # каждый год 1 января в 03:00 UTC
+  workflow_dispatch:      # для ручного запуска
+
 jobs:
   update-license-year:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write      # <-- обязательно для создания коммита и пуша
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}   # <-- эта строка обязательна
+      
       - name: Update license year
         uses: FantasticFiasco/action-update-license-year@v3
         with:
           license-file: 'LICENSE.md'
-          # Начальный год (если не указан, берется из файла)
-          # start-year: '2022'
-          # Альтернативно, можно указать transforms для сложных случаев
-          # transforms: |
-          #   {
-          #     "LICENSE.md": [
-          #       {
-          #         "regex": "(C) (\\d{4})",
-          #         "replacement": "(C) $1-$CURRENT_YEAR"
-          #       }
-          #     ]
-          #   }
