@@ -1,6 +1,5 @@
 import re
 from datetime import datetime
-
 with open("LICENSE.md", "r+") as f:
     c = f.read()
     y = sorted(map(int, re.findall(r'\b20\d{2}\b', c)))
