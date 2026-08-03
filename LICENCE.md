@@ -4,7 +4,7 @@
 
 **ISL v1.1**
 
-© ΑΩ Studio 2026
+© ΑΩ Studio 2022
 
 Следующие код, ресурсы и материалы («Работа»), предоставленные в данном репозитории, доступны на следующих ограничительных условиях в дополнение к любым другим лицензиям, которые могут быть предоставлены. В случае противоречий между условиями данной лицензии и другими лицензиями, используемыми в этом репозитории, настоящая лицензия имеет преимущественную силу в тех вопросах, где автор(ы) имеют право принимать такие решения в отношении Работы (например, в отношении оригинальных вкладов, авторских прав, дизайна и т.п.).
 
@@ -22,7 +22,7 @@
 
 **ISL v1.1**
 
-(C) ΑΩ Studio 2026
+(C) ΑΩ Studio 2022
 
 The following code, resources, and materials ("Work") provided in this repository are made available under the following restrictive conditions, in addendum to any other license otherwise provided. In the event of conflicting clauses between this license and other licenses used in this repository, this license takes precedent where the author(s) have the right to make such decisions about the work (such as in original contributions, copyright, design work, or otherwise).
 
