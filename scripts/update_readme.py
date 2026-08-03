@@ -5,7 +5,7 @@ def gd(g,o):
     d=[]
     for r in g.get_organization(o).get_repos(sort="created"):
         if r.name==".github": continue
-        x={"name":r.name,"full_name":r.full_name,"description":r.description or"—","created_at":r.created_at.strftime("%d-%m-%Y"),"updated_at":r.updated_at.strftime("%d-%m-%Y"),"stars":r.stargazers_count,"size_mb":round(r.size/1024,1) if r.size else 0}
+        x={"name":r.name,"full_name":r.full_name,"description":r.description or"—","created_at":r.created_at.strftime("%d-%m-%Y"),"updated_at":r.updated_at.strftime("%d-%m-%Y"),"stars":r.stargazers_count}
         try: r.get_readme(); x["has_readme"]=1
         except: x["has_readme"]=0
         try:
@@ -19,11 +19,11 @@ def gd(g,o):
     return d
 def gt(d):
     if not d: return "Нет репозиториев"
-    h=["Проект  Project","Описание  Description","Создан  Created","Обновлён  Updated","⭐","Размер МБ  Size MB","README","Релизов  Releases","Скачиваний  Downloads"]
+    h=["Проект Project","Описание Description","Создан Created","Обновлён Updated","⭐","README","Релизов Releases","Скачиваний Downloads"]
     b="| "+" | ".join(h)+" |\n| "+" | ".join([":---:"]*len(h))+" |\n"
     for r in d:
         p=r['description'][:40]+"…" if len(r['description'])>40 else r['description']
-        b+="| "+" | ".join([f"[{r['name']}](https://github.com/{r['full_name']})",p,r['created_at'],r['updated_at'],str(r['stars']),str(r['size_mb']),"✅" if r['has_readme'] else"❌",str(r['release_count']),str(r['total_downloads'])])+" |\n"
+        b+="| "+" | ".join([f"[{r['name']}](https://github.com/{r['full_name']})",p,r['created_at'],r['updated_at'],str(r['stars']),"✅" if r['has_readme'] else"❌",str(r['release_count']),str(r['total_downloads'])])+" |\n"
     return b
 def u(p,t):
     with open(p,"r",encoding="utf-8") as f: c=f.read()
