@@ -3,7 +3,7 @@ from datetime import datetime,timezone
 from github import Github,Auth,GithubException
 def gd(g,o):
     d=[]
-    for r in g.get_organization(o).get_repos(sort="created",direction="desc"):
+    for r in g.get_organization(o).get_repos(sort="created",direction="asc"):
         if r.name==".github": continue
         x={"name":r.name,"full_name":r.full_name,"description":r.description or"—","created_at":r.created_at.strftime("%d-%m-%Y"),"updated_at":r.updated_at.strftime("%d-%m-%Y"),"stars":r.stargazers_count,"size_mb":round(r.size/1024,1) if r.size else 0}
         try: r.get_readme(); x["has_readme"]=1
