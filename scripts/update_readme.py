@@ -23,7 +23,7 @@ def gt(d):
     b="| "+" | ".join(h)+" |\n| "+" | ".join([":---:"]*len(h))+" |\n"
     for r in d:
         p=r['description'][:40]+"…" if len(r['description'])>40 else r['description']
-        b+="| "+" | ".join([f"[{r['name']}](https://github.com/{r['full_name']})",p,r['created_at'],r['updated_at'],str(r['stars']),str(r['size_mb'])+"МБ/MB","✅" if r['has_readme'] else"❌",str(r['release_count']),str(r['total_downloads'])])+" |\n"
+        b+="| "+" | ".join([f"[{r['name']}](https://github.com/{r['full_name']})",p,r['created_at'],r['updated_at'],str(r['stars']),str(r['size_mb'])+" МБ/MB","✅" if r['has_readme'] else"❌",str(r['release_count']),str(r['total_downloads'])])+" |\n"
     return b
 def u(p,t):
     with open(p,"r",encoding="utf-8") as f: c=f.read()
