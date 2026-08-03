@@ -27,3 +27,10 @@ Here will be a desciption...
 ## ⚖️ Лицензия / License
 
 Все проекты используют / All projects use the [ISL (Ivy Software License)](https://github.com/AlphaOmega-Studio/.github/blob/main/LICENSE.md).
+
+---
+
+## 🤝 Кодекс поведения / Code of Conduct
+
+Все участники Студии следуют [Кодексу поведения](https://github.com/AlphaOmega-Studio/.github/blob/main/CODE_OF_CONDUCT.md).  
+All Studio members follow the [Code of Conduct](https://github.com/AlphaOmega-Studio/.github/blob/main/CODE_OF_CONDUCT.md).
