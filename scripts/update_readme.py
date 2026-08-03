@@ -5,7 +5,8 @@ def gd(g,o):
     d=[]
     for r in g.get_organization(o).get_repos(sort="created"):
         if r.name==".github": continue
-        x={"name":r.name,"full_name":r.full_name,"description":r.description or"—","created_at":r.created_at.strftime("%d-%m-%Y"),"updated_at":r.updated_at.strftime("%d-%m-%Y"),"stars":r.stargazers_count}
+        latest = r.updated_at
+        x={"name":r.name,"full_name":r.full_name,"description":r.description or"—","created_at":r.created_at.strftime("%d-%m-%Y"),"stars":r.stargazers_count}
         try: r.get_readme(); x["has_readme"]=1
         except: x["has_readme"]=0
         try:
@@ -13,8 +14,13 @@ def gd(g,o):
             for l in r.get_releases():
                 for a in l.get_assets(): s+=a.download_count
                 c+=1
+                rel_date = l.published_at or l.created_at
+                if rel_date and rel_date > latest:
+                    latest = rel_date
             x["release_count"]=c; x["total_downloads"]=s
-        except: x["release_count"]=0; x["total_downloads"]=0
+        except:
+            x["release_count"]=0; x["total_downloads"]=0
+        x["updated_at"] = latest.strftime("%d-%m-%Y") if latest else "—"
         d.append(x)
     return d
 def gt(d):
