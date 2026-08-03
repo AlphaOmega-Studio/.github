@@ -1,10 +1,8 @@
 name: Update license year
-
 on:
   schedule:
-    - cron: '0 3 1 1 *'   # каждый год 1 января в 03:00 UTC
-  workflow_dispatch:      # для ручного запуска
-
+    - cron: '0 3 1 1 *'
+  workflow_dispatch:
 jobs:
   update-license-year:
     runs-on: ubuntu-latest
@@ -15,10 +13,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      
       - name: Update license year
         uses: FantasticFiasco/action-update-license-year@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: 'LICENSE.md'
-          transform: '(?<from>\d{4})'   # находит любые 4 цифры (год)
+          transform: '(?<from>\d{4})'
