@@ -1,17 +1,17 @@
 # ΑΩ Studio
-## 🇷🇺 Русский
+## Русский
 
 Тут будет описание...
 
 ---
 
-## 🇺🇸 English
+## English
 
 Here will be a desciption...
 
 ---
 
-# Наши проекты / Our projects:
+## 📖 Наши проекты / Our projects:
 
 <!-- s -->
 *Данные актуальны на / Data updated on 03-08-2026 12:36 UTC*
@@ -23,3 +23,7 @@ Here will be a desciption...
 | [WebBuild-Tests](https://github.com/AlphaOmega-Studio/WebBuild-Tests) | — | HTML | 18-07-2026 | 03-08-2026 | 0 | 0 | 34.2 | ❌ | 0 | 0 |
 
 <!-- e -->
+---
+## ⚖️ Лицензия / License
+
+Все проекты используют / All projects use the [ISL (Ivy Software License)](https://github.com/AlphaOmega-Studio/.github/blob/main/LICENSE.md).
