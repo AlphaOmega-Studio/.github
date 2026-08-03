@@ -9,14 +9,15 @@ jobs:
   update-license-year:
     runs-on: ubuntu-latest
     permissions:
-      contents: write      # разрешение на создание коммита и PR
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # важно для правильной работы действия
+          fetch-depth: 0
       
       - name: Update license year
         uses: FantasticFiasco/action-update-license-year@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}   # обязательный параметр
-          path: 'LICENSE.md'                   # путь к вашему файлу лицензии
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: 'LICENSE.md'
+          transform: '(?<from>\d{4})'   # находит любые 4 цифры (год)
