@@ -22,7 +22,7 @@
 
 **ISL v1.1**
 
-(C) ΑΩ Studio 2026
+(C) ΑΩ Studio 2024
 
 The following code, resources, and materials ("Work") provided in this repository are made available under the following restrictive conditions, in addendum to any other license otherwise provided. In the event of conflicting clauses between this license and other licenses used in this repository, this license takes precedent where the author(s) have the right to make such decisions about the work (such as in original contributions, copyright, design work, or otherwise).
 
