@@ -32,10 +32,10 @@
 
 ---
 
-## 👥 Команда
+## 👥 Команда / Team
 
-| Аватар | Имя | Роль | Контакты |
-| :---: | :--- | :--- | :--- |
+| Аватар / Avatar | Имя / Name | Роль / Role | Контакты / Contacts |
+| :---: | :---: | :---: | :---: |
 | <img src="https://github.com/Avosson.png?size=40" width="40" height="40" style="border-radius:50%;"> | **Avosson** | Game-директор / сценарист | [GitHub](https://github.com/Avosson) |
 | <img src="https://github.com/Ceris1107.png?size=40" width="40" height="40"> | **Ceris1107** | Технический директор / сценарист | [GitHub](https://github.com/Ceris1107) |
 | <img src="https://github.com/artem_3d.png?size=40" width="40" height="40"> | **Артём Кузнецов** | Ведущий художник (3D / 2D) | [ArtStation](https://artstation.com/artem) · [Instagram](https://instagram.com/artem_art) |
