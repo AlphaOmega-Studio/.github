@@ -3,7 +3,7 @@
   
   # «ΑΩ Studio»
 
-  ## Beyond the Evolution... — За пределами Эволюции...
+  ## ...Beyond the Evolution — За пределами Эволюции...
 
   [![Веб-сайт](https://img.shields.io/badge/Вебсайт-606060?style=for-the-badge&logo=google-chrome)](https://AlphaOmega-Studio.github.io/web)
 </div>
