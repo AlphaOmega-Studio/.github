@@ -5,7 +5,7 @@
 
   ## Beyond the Evolution... — За пределами Эволюции...
 
-  [![Веб-сайт](https://img.shields.io/badge/Вебсайт-yourstudio.com-0A0A0A?style=for-the-badge&logo=google-chrome)](https://yourstudio.com)
+  [![Веб-сайт](https://img.shields.io/badge/Вебсайт-yourstudio.com-0A0A0A?style=for-the-badge&logo=google-chrome)](https://AlphaOmega-Studio.github.io/web)
   [![Twitter](https://img.shields.io/badge/Twitter-@YourStudio-1DA1F2?style=for-the-badge&logo=twitter)](https://twitter.com/YourStudio)
   [![YouTube](https://img.shields.io/badge/YouTube-@YourStudio-FF0000?style=for-the-badge&logo=youtube)](https://youtube.com/@YourStudio)
   [![Discord](https://img.shields.io/badge/Discord-Присоединяйся-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/your-link)
