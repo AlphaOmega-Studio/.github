@@ -36,14 +36,12 @@
 
 ---
 
-<!-- ============ 4. КОМАНДА (ТАБЛИЦА С АВАТАРКАМИ) ============ -->
+<!-- ============ Avosson,  ============ -->
 ## 👥 Команда
-
-Мы — небольшая, но сплочённая команда из 8 человек. Познакомьтесь с ключевыми участниками:
 
 | Аватар | Имя | Роль | Контакты |
 | :---: | :--- | :--- | :--- |
-| <img src="https://github.com/alexdev.png?size=40" width="40" height="40" style="border-radius:50%;"> | **Алексей Иванов** | Гейм-директор / Ведущий дизайнер | [GitHub](https://github.com/alexdev) · [Twitter](https://twitter.com/alex_gamedev) |
+| <img src="https://github.com/Avosson.png?size=40" width="40" height="40" style="border-radius:50%;"> | **Avosson** | Директор / сценарист | [GitHub](https://github.com/Avosson) |
 | <img src="https://github.com/maria_code.png?size=40" width="40" height="40"> | **Мария Смирнова** | Технический директор / Lead Programmer | [GitHub](https://github.com/maria_code) · [LinkedIn](https://linkedin.com/in/maria) |
 | <img src="https://github.com/artem_3d.png?size=40" width="40" height="40"> | **Артём Кузнецов** | Ведущий художник (3D / 2D) | [ArtStation](https://artstation.com/artem) · [Instagram](https://instagram.com/artem_art) |
 | <img src="https://github.com/olga_sound.png?size=40" width="40" height="40"> | **Ольга Петрова** | Композитор / Звукорежиссёр | [SoundCloud](https://soundcloud.com/olga) · [YouTube](https://youtube.com/@olga) |
