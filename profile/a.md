@@ -1,10 +1,9 @@
 <!-- ============ 1. ШАПКА ============ -->
 <div align="center">
-  <img src="https://your-cdn.com/studio-logo.gif" alt="Логотип студии" width="600"/>
+  
+  # «ΑΩ Studio»
 
-  # 🎮 Студия «[Название]»
-
-  ## Создаём миры, в которые хочется возвращаться
+  ## Beyond the Evolution... — За пределами Эволюции...
 
   [![Веб-сайт](https://img.shields.io/badge/Вебсайт-yourstudio.com-0A0A0A?style=for-the-badge&logo=google-chrome)](https://yourstudio.com)
   [![Twitter](https://img.shields.io/badge/Twitter-@YourStudio-1DA1F2?style=for-the-badge&logo=twitter)](https://twitter.com/YourStudio)
