@@ -68,13 +68,19 @@
 
 ---
 
-## 📄 Лицензия
+## ⚖️ Лицензия / License
 
-Весь код, опубликованный в открытых репозиториях студии, распространяется под лицензией **MIT**, если не указано иное.  
-Игровые ресурсы (арт, звук, дизайн) являются интеллектуальной собственностью студии и защищены авторским правом.
+Все проекты используют / All projects use the [ISL (Ivy Software License)](https://github.com/AlphaOmega-Studio/.github/blob/main/LICENSE.md).
+
+---
+
+## 🤝 Кодекс поведения / Code of Conduct
+
+Все участники Студии следуют [Кодексу поведения](https://github.com/AlphaOmega-Studio/.github/blob/main/CODE_OF_CONDUCT.md).  
+All Studio members follow the [Code of Conduct](https://github.com/AlphaOmega-Studio/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ---
 
 <div align="center">
-  <sub>Сделано с ❤️ в студии «[Название]» • 2026</sub>
+  <sub>Made in «ΑΩ Studio»</sub>
 </div>
