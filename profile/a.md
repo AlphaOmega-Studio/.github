@@ -57,11 +57,7 @@
 
 ## 📫 Связаться с нами
 
-Мы всегда открыты для общения, предложений и новых талантов!
-
-- **Электронная почта**: hello@yourstudio.com  
-- **Для прессы и партнёрства**: press@yourstudio.com  
-- **Отклик на вакансии**: jobs@yourstudio.com (присылайте портфолио и резюме)
+- **Электронная почта**: [project.alpha.omega.game@gmail.com](mailto:project.alpha.omega.game@gmail.com) 
 
 ### 🔥 Мы ищем:
 - Unity-разработчик (геймплей / инструменты)  
