@@ -42,8 +42,6 @@
 | <img src="https://github.com/olga_sound.png?size=40" width="40" height="40"> | **Ольга Петрова** | Композитор / Звукорежиссёр | [SoundCloud](https://soundcloud.com/olga) · [YouTube](https://youtube.com/@olga) |
 | <img src="https://github.com/dmitry_narr.png?size=40" width="40" height="40"> | **Дмитрий Новиков** | Сценарист / Нарративный дизайнер | [GitHub](https://github.com/dmitry_narr) · [Twitter](https://twitter.com/dmitry_writes) |
 
-> *Аватарки автоматически подтягиваются из GitHub (замените `username` на реальный). Можно использовать любые ссылки на изображения.*
-
 ---
 
 ## 🗺️ Дорожная карта
