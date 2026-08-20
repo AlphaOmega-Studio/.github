@@ -59,8 +59,7 @@
 
 Мы всегда открыты для общения, предложений и новых талантов!
 
-- **Веб-сайт**: [yourstudio.com](https://yourstudio.com)
-- **Эл. почта (общие вопросы)**: hello@yourstudio.com  
+- **Электронная почта**: hello@yourstudio.com  
 - **Для прессы и партнёрства**: press@yourstudio.com  
 - **Отклик на вакансии**: jobs@yourstudio.com (присылайте портфолио и резюме)
 
