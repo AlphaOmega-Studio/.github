@@ -1,16 +1,12 @@
-<!-- ============ 1. ШАПКА ============ -->
 <div align="center">
   
   # «ΑΩ Studio»
-
   ## ...Beyond the Evolution — За пределами Эволюции...
-
   [![Веб-сайт](https://img.shields.io/badge/Вебсайт-606060?style=for-the-badge&logo=google-chrome)](https://AlphaOmega-Studio.github.io/web)
 </div>
 
 ---
 
-<!-- ============ 2. О СТУДИИ ============ -->
 ## 📖 О нас
 
 Мы — независимая команда разработчиков, объединённая любовью к атмосферным играм с глубоким сюжетом. Наша философия — создавать эмоциональные миры, которые остаются с игроком надолго.
@@ -36,13 +32,12 @@
 
 ---
 
-<!-- ============ Avosson,  ============ -->
 ## 👥 Команда
 
 | Аватар | Имя | Роль | Контакты |
 | :---: | :--- | :--- | :--- |
-| <img src="https://github.com/Avosson.png?size=40" width="40" height="40" style="border-radius:50%;"> | **Avosson** | Директор / сценарист | [GitHub](https://github.com/Avosson) |
-| <img src="https://github.com/maria_code.png?size=40" width="40" height="40"> | **Мария Смирнова** | Технический директор / Lead Programmer | [GitHub](https://github.com/maria_code) · [LinkedIn](https://linkedin.com/in/maria) |
+| <img src="https://github.com/Avosson.png?size=40" width="40" height="40" style="border-radius:50%;"> | **Avosson** | Game-директор / сценарист | [GitHub](https://github.com/Avosson) |
+| <img src="https://github.com/Ceris1107.png?size=40" width="40" height="40"> | **Ceris1107** | Технический директор / сценарист | [GitHub](https://github.com/Ceris1107) |
 | <img src="https://github.com/artem_3d.png?size=40" width="40" height="40"> | **Артём Кузнецов** | Ведущий художник (3D / 2D) | [ArtStation](https://artstation.com/artem) · [Instagram](https://instagram.com/artem_art) |
 | <img src="https://github.com/olga_sound.png?size=40" width="40" height="40"> | **Ольга Петрова** | Композитор / Звукорежиссёр | [SoundCloud](https://soundcloud.com/olga) · [YouTube](https://youtube.com/@olga) |
 | <img src="https://github.com/dmitry_narr.png?size=40" width="40" height="40"> | **Дмитрий Новиков** | Сценарист / Нарративный дизайнер | [GitHub](https://github.com/dmitry_narr) · [Twitter](https://twitter.com/dmitry_writes) |
@@ -51,7 +46,6 @@
 
 ---
 
-<!-- ============ 6. ДОРОЖНАЯ КАРТА ============ -->
 ## 🗺️ Дорожная карта
 
 Текущие и ближайшие вехи (обновляется ежеквартально):
@@ -65,7 +59,6 @@
 
 ---
 
-<!-- ============ 7. КОНТАКТЫ И ВАКАНСИИ ============ -->
 ## 📫 Связаться с нами
 
 Мы всегда открыты для общения, предложений и новых талантов!
@@ -84,7 +77,6 @@
 
 ---
 
-<!-- ============ 8. ЛИЦЕНЗИЯ (если открытый код) ============ -->
 ## 📄 Лицензия
 
 Весь код, опубликованный в открытых репозиториях студии, распространяется под лицензией **MIT**, если не указано иное.  
@@ -92,7 +84,6 @@
 
 ---
 
-<!-- ============ 9. ПОДВАЛ (необязательно) ============ -->
 <div align="center">
   <sub>Сделано с ❤️ в студии «[Название]» • 2026</sub>
 </div>
